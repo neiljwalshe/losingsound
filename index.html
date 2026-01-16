@@ -5,227 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Losing Sound - A Project To Make Pokies Less Addictive</title>
     <style>
-        @font-face {
-            font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
-            font-weight: normal;
-            font-style: normal;
+        /* Modern Reset & Base Styles */
+        * {
+            box-sizing: border-box;
         }
 
-
-		
         body {
-            font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';
+            font-family: 'Gotham', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             background-color: black;
             color: white;
             line-height: 1.4;
-        }
-		
-	
-		
-        .download-link {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            color: white;
-           /* text-decoration: none; */
-			text-decoration: underline;
-            text-decoration-color: white;
-            text-decoration-thickness: 10px;
-            text-underline-offset: 4px;
-            font-size: 1.2em;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Layout Containers */
         .container {
-            width: 1080px;
+            width: 100%;
+            max-width: 1080px; /* Maintains original desktop width */
             margin: 0 auto;
-            padding: 0;
-			            
-
+            padding: 0 20px; /* Padding for mobile gutters */
         }
 
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Typography */
         h1, h2 {
-            font-size: 2.5em;
-            line-height: 1;
+            font-size: 2.5em; /* Original Desktop Size */
+            line-height: 1.1;
             color: white;
             margin-top: 0;
+			            font-weight: normal;
+
+          /*   text-transform: uppercase;  */
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            transition: color 0.3s, text-decoration-color 0.3s;
+        }
+
+        a:hover {
+            text-decoration-color: red;
+            color: red;
         }
 
         .custom-underline {
             text-decoration: underline;
-            /* text-decoration-color: white; */
             text-decoration-thickness: 4px;
             text-underline-offset: 8px;
         }
 
-		        .custom-underline:hover {
-color: red;        }
-
-        /* Header Banner Section */
-        .header-banner {
-            position: relative;
+        /* Header Banner */
+        .banner-container {
             width: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 100px 0; /* Adjust padding as needed */
-			line-height: 0;
-        }
-
-        .header-banner img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-			max-height: 100%;
-            height: auto;
-            object-fit: cover;
-            z-index: -1;
-			display: block;
-        }
-		
-		.banner-container {
-    /* This ensures the container itself spans the full width of its parent */
-    width: 100%;
-    /* Prevents extra space below the image */
-    line-height: 0;
-}
-
-.banner-image {
-    /* Makes the image always take up 100% of the container's (and thus screen's) width */
-    width: 100%;
-    /* This is the key rule. It limits the vertical size of the image to its original, natural height,
-       preventing it from becoming excessively tall on very wide screens. */
-    max-height: 100%; /* Refers to 100% of the image's intrinsic height */
-    /* Ensures the image maintains its aspect ratio while adapting to both width and max height constraints */
-    height: auto;
-    /* Ensures the image is displayed as a block element for consistent rendering */
-    display: block;
-}
-
-
-		
-		
-		.media-contacts {
-		    position: absolute;
-            top: 0;
-			align-items: center
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 10;
-
-			
-		}
-
-        /* SFX Section */
-        .sfx-section {
+            line-height: 0;
             background-color: black;
-            padding: 40px 0;
         }
 
-        .sfx-section h2 {
-            text-transform: uppercase;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .sfx-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 200px);
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .sfx-icon {
-            width: 200px;
-            height: 203px;
-            cursor: pointer;
-            background-size: cover; /* Ensure the background image covers the entire div */
-            background-position: center;
-        }
-
-        .sfx-section p {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .sfx-section a {
-            color: white;
-            text-decoration: none;
+        .banner-image {
+            width: 100%;
+            height: auto;
         }
 
         /* Video Section */
         .video-section {
-            background-color: black;
-            padding: 40px 0;
-        }
+            padding: 60px 0;
+			            font-weight: normal;
 
-        .video-section h2 {
-            text-transform: uppercase;
-            text-align: left;
-            margin-bottom: 20px;
         }
 
         .video-container {
-            width: 100%;
-            max-width: 1080px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
             margin-bottom: 30px;
         }
 
         .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            aspect-ratio: 16 / 9; /* Standard video aspect ratio */
+            height: 100%;
+			            font-weight: normal;
+
         }
 
-        .video-section p {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .video-section a {
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Results Section */
-        .results-section {
-            background-color: black;
+        /* SFX Grid Section */
+        .sfx-section {
             padding: 40px 0;
+			            font-weight: normal;
+
         }
 
-        .results-section h2 {
-            text-transform: uppercase;
-            text-align: left;
+        .sfx-grid {
+            display: grid;
+            /* Desktop: 5 columns */
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            max-width: 1080px;
+            margin: 0 auto;
         }
 
-        /* Photo Section */
+        .sfx-icon {
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+           /*  transition: transform 0.2s;  */
+        }
+
+        .sfx-icon:hover {
+           /*  transform: scale(1.05);  */
+        }
+
+        /* Thumbnail Photo Section */
         .photo-section {
-            background-color: black;
             padding: 40px 0;
-        }
-
-        .photo-section h2 {
-            text-transform: uppercase;
-            text-align: left;
-            margin-bottom: 20px;
         }
 
         .thumbnails-grid {
             display: grid;
+            /* Desktop: 3 columns */
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 30px;
         }
 
         .thumbnail {
             width: 100%;
             cursor: pointer;
-            border: none;
+            transition: opacity 0.3s;
         }
 
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        /* History Section */
+        .history-section {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('media/east-sydney-hotel-losing-sound.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+        }
+
+        .history-section h2 {
+            text-transform: none;
+            line-height: 1.3;
+            font-weight: normal;
+        }
+
+        /* Credits */
+        .credits-section {
+            padding: 60px 0;
+            font-size: 0.9em;
+        }
+
+        .credits-section p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* Overlay */
         .large-image-overlay {
             display: none;
             position: fixed;
@@ -233,10 +186,10 @@ color: red;        }
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 2000;
         }
 
         .large-image-container {
@@ -245,324 +198,145 @@ color: red;        }
             max-height: 90%;
         }
 
-        .large-image {
-            max-width: 100%;
-            max-height: 100%;
-            display: block;
-        }
-
         .close-button {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: -40px;
+            right: 0;
             color: white;
-            font-size: 2em;
+            font-size: 30px;
             cursor: pointer;
-            z-index: 1001;
         }
 
-		.photo-section {
-            position: relative;
-        }
-		
-        .photo-quotes {
-            margin-top: 40px;
-        }
-
-        .photo-quotes img {
-            width: 100%;
-            display: block;
-            margin-bottom: 20px;
-            position: relative;
+        /* TABLET STYLES (Under 1024px) */
+        @media (max-width: 1024px) {
+            h2 {
+                font-size: 2em;
+            }
+            .sfx-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        .photo-quotes p {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            font-size: 1.5em; /* Adjust as needed */
-            line-height: 1.2;
-            width: 80%; /* Adjust width as needed */
-        }
-
-
-
-		
-        .photo-section p {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .photo-section a {
-            color: white;
-            text-decoration: none;
-        }
-
-		
-		
-		
-        /* Behind The Scenes Section */
-        .behind-scenes-section {
-            background-color: black;
-            padding: 40px 0;
-        }
-
-        .behind-scenes-section h2 {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .behind-scenes-section .video-container {
-            margin-bottom: 0;
-        }
-
-        /* History Section */
-        .history-section {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)), url('media/why.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 40px 0;
-        }
-
-        .history-section .container {
-            /* background-color: rgba(0, 0, 0, 0.7); Optional: Add a semi-transparent overlay for better text readability */
-            padding: 40px;
-        }
-
-        .history-section h2 {
-            text-transform: uppercase;
-            text-align: left;
-            line-height: 1.2;
-        }
-
-        /* Credits Section */
-        .credits-section {
-            background-color: black;
-            padding: 40px 0;
-        }
-
-        .credits-section h2 {
-			            text-transform: uppercase;
-
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .credits-section p {
-            text-align: left;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-		.neon-text {
-  		  font-size: 4rem;
- 		   color: #fff;
- 		   text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
- 		   animation: glow 1.5s infinite alternate;
-		}
-		
-				a {
-			text-decoration: underline;
-            text-decoration-color: white;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
-		}
-		a:hover {
-			text-decoration-color: red;
-			color: red;
-		}
-
-		@keyframes glow {
-    		0% {
-        		text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
-    		}
-   	    	 100% {
-        		text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
-    		}
-		}
-		
-        /* Responsive Design */
+        /* MOBILE STYLES (Under 768px) */
         @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em; /* Smaller appropriate font */
+            }
+
             .container {
-                width: 100%;
-                padding: 0 20px;
+                padding: 0 15px;
             }
 
-            h1, h2 {
-                font-size: 2.5em;
-            }
-
-            .header-banner {
-                padding: 50px 0;
-            }
-
-            .header-banner img {
-                max-width: 80%;
+            .video-section, .photo-section, .credits-section {
+                padding: 30px 0;
             }
 
             .sfx-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .sfx-icon {
-                width: 100%;
-                height: auto;
-                aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+                /* Full width icons on mobile, 2 wide */
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
             }
 
             .thumbnails-grid {
+                /* Change to 2 wide for thumbnails as requested */
                 grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
 
-            .photo-quotes p {
+            .history-section {
+                padding: 40px 0;
+            }
+            
+            .history-section h2 {
                 font-size: 1.2em;
             }
-			
-			
-			
-			
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0;
-        }
-			
-	    .photo-section .quote-image-container {
-            margin-top: 20px;
-            position: relative;
-        }
 
-        .photo-section img {
-            width: 100%;
-            height: auto;
-            max-width: 1080px;
-            display: block;
-            margin: 20px auto 0 auto;
-        }
-
-        .photo-section .quote-overlay {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 1.5em;
-            text-align: center;
-            width: 80%;
-        }
-			
-	
-			
-			
+            .credits-section {
+                text-align: left;
+            }
         }
     </style>
-		<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
 </head>
 <body>
 	
-<div class="banner-container">
-    <img src="media/banner-title-2000px.gif" alt="Losing Sound" class="banner-image">
-</div>	
+    <div class="banner-container">
+        <img src="media/banner-title-2000px-esh.gif" alt="Losing Sound" class="banner-image">
+    </div>	
 
-	
-	    <div class="video-section">
-			
-			
-        <div class="container">
-            <h2>Did you know poker machines don't have losing sounds? Even players don't know.</h2>
-			<br>
-      	    <img src="media/cast.jpg" alt="" width="1080">
-			<br><br>
-		    <h2>So we modified a poker machine and tested losing sounds on real gamers. Have a look.</h2>
-			<br>
-          <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/1121833683?h=YOUR_HASH&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1080" height="608" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="YOUR_VIDEO_TITLE"></iframe>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-          </div>
-			            <h2>It really work to reduce harm.</h2>
-			<br>
-      	    <img src="media/results.gif" alt="" width="1080">
-			<br><br><br>
-			<h2>We're urging government to enforce losing sounds in all poker machines. <Br><br>
-					 
-	<br><br>
-				
-			<div style="text-align: center;">
-				<span class="custom-underline"><a href="https://www.change.org/losingsound">SIGN PETITION NOW</a> </span>
-			</div>
-				
-			<br>
-<br>
-	
-<br>
-These losing sounds were created to psyhcloicaly reduce gambling harm.
-		  </h2>
-
+    <div class="video-section">
+        <div class="container"><br><br>
+            <h2  style="text-align: center;">Did you know poker machines don't have losing sounds? Even players don't know.</h2>
+            <br><br><br>
+            <img src="media/cast.jpg" alt="Cast Members">
+            <br><br><br><br>
+            <h2  style="text-align: center;">So we modified a poker machine and tested losing sounds on real gamers. Have a look.</h2>
+            <br><br><br>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/1121833683" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div><br><br>
+            <h2  style="text-align: center;">It really works to reduce harm.</h2>
+            <br><br><br>
+            <img src="media/results.gif" alt="Results Graph">
+            
+            
+		
         </div>
+			 
     </div>
+<h2 style="text-align: center; margin: 40px 0; font-weight: bold; text-transform: uppercase;"><a href="https://www.change.org/losingsound">SIGN PETITION NOW</a></h2>
     <div class="sfx-section">
         <div class="container">
+			<h2  style="text-align: center;">
+            These losing sounds were created to psychologically reduce gambling harm.
+				</h2><br><br>
             <div class="sfx-grid">
-                <div class="sfx-icon" data-sound="media/sfx1.wav" style="background-image: url('media/sfx-icon1-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx2.wav" style="background-image: url('media/sfx-icon2-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx3.wav" style="background-image: url('media/sfx-icon3-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx4.wav" style="background-image: url('media/sfx-icon4-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx5.wav" style="background-image: url('media/sfx-icon5-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx6.wav" style="background-image: url('media/sfx-icon6-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx7.wav" style="background-image: url('media/sfx-icon7-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx8.wav" style="background-image: url('media/sfx-icon8-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx9.wav" style="background-image: url('media/sfx-icon9-off.png')"></div>
-                <div class="sfx-icon" data-sound="media/sfx10.wav" style="background-image: url('media/sfx-icon10-off.png')"></div>
+                <div class="sfx-icon" data-sound="media/sfx1.wav" style="background-image: url('media/losing-sound-button-1-off.jpg')"></div>
+                <div class="sfx-icon" data-sound="media/sfx2.wav" style="background-image: url('media/losing-sound-button-2-off.jpg')"></div>
+                <div class="sfx-icon" data-sound="media/sfx3.wav" style="background-image: url('media/losing-sound-button-3-off.jpg')"></div>
+                <div class="sfx-icon" data-sound="media/sfx4.wav" style="background-image: url('media/losing-sound-button-4-off.jpg')"></div>
+                <div class="sfx-icon" data-sound="media/sfx5.wav" style="background-image: url('media/losing-sound-button-5-off.jpg')"></div>
+                <div class="sfx-icon" data-sound="media/sfx6.wav" style="background-image: url('media/losing-sound-button-6-off.jpg')"></div>
             </div>
-			<br><br>
-			<h2>
-			<div style="text-align: center;">
-				<span class="custom-underline"><a href="media/losing-sounds.zip">Download sound files</a> </span>
-			</div><br><br>
-				They are free for anyone to use, especially gaming companies.
-			</h2>
-			
-			</p>
+            <br><br><br>
+            <div style="text-align: center;">
+                <h2 ><a href="media/losing-sounds.zip" style="font-weight: bold; text-transform: uppercase;">Download sound files</a>
+				<br><br>
+                <p style="text-align: center;">They are free for anyone to use, <br>
+especially gaming companies.</p>
+					</h2>
+            </div>
         </div>
     </div>
+
     <div class="photo-section">
         <div class="container">
             <div class="thumbnails-grid">
-				                <img src="media/still-15.jpg" alt="Still 15" class="thumbnail" data-large="media/still-15.jpg">
-                <img src="media/still-1.jpg" alt="Still 1" class="thumbnail" data-large="media/still-1.jpg">
-				                <img src="media/still-4.jpg" alt="Still 4" class="thumbnail" data-large="media/still-4.jpg">
-                <img src="media/still-19.jpg" alt="Still 19" class="thumbnail" data-large="media/still-19.jpg">
-                <img src="media/still-3.jpg" alt="Still 3" class="thumbnail" data-large="media/still-3.jpg">
-				                <img src="media/still-23.jpg" alt="Still 23" class="thumbnail" data-large="media/still-23.jpg">
-                <img src="media/still-7.jpg" alt="Still 7" class="thumbnail" data-large="media/still-7.jpg">
-				                <img src="media/still-27.jpg" alt="Still 27" class="thumbnail" data-large="media/still-27.jpg">
-								                <img src="media/still-11.jpg" alt="Still 11" class="thumbnail" data-large="media/still-11.jpg">
-								                <img src="media/still-9.jpg" alt="Still 9" class="thumbnail" data-large="media/still-9.jpg">
-                <img src="media/still-26.jpg" alt="Still 26" class="thumbnail" data-large="media/still-26.jpg">
-                <img src="media/still-12.jpg" alt="Still 12" class="thumbnail" data-large="media/still-12.jpg">
-				                <img src="media/still-18.jpg" alt="Still 18" class="thumbnail" data-large="media/still-18.jpg">
-                <img src="media/still-8.jpg" alt="Still 8" class="thumbnail" data-large="media/still-8.jpg">
-				                <img src="media/still-10.jpg" alt="Still 10" class="thumbnail" data-large="media/still-10.jpg">
-
+                <img src="media/still-15.jpg" alt="Still" class="thumbnail" data-large="media/still-15.jpg">
+                <img src="media/still-1.jpg" alt="Still" class="thumbnail" data-large="media/still-1.jpg">
+                <img src="media/still-4.jpg" alt="Still" class="thumbnail" data-large="media/still-4.jpg">
+                <img src="media/still-19.jpg" alt="Still" class="thumbnail" data-large="media/still-19.jpg">
+                <img src="media/still-3.jpg" alt="Still" class="thumbnail" data-large="media/still-3.jpg">
+                <img src="media/still-23.jpg" alt="Still" class="thumbnail" data-large="media/still-23.jpg">
+                <img src="media/still-7.jpg" alt="Still" class="thumbnail" data-large="media/still-7.jpg">
+                <img src="media/still-27.jpg" alt="Still" class="thumbnail" data-large="media/still-27.jpg">
+                <img src="media/still-11.jpg" alt="Still" class="thumbnail" data-large="media/still-11.jpg">
+                <img src="media/still-9.jpg" alt="Still" class="thumbnail" data-large="media/still-9.jpg">
+                <img src="media/still-26.jpg" alt="Still" class="thumbnail" data-large="media/still-26.jpg">
+                <img src="media/still-12.jpg" alt="Still" class="thumbnail" data-large="media/still-12.jpg">
             </div>
-			
-      </div>
+        </div>
     </div>
 
     <div class="history-section">
         <div class="container">
-            <h2>Why did we do this?<br>
-            Over one year, a close relative lost 150k on the pokies. They slapped away the credit cards, the children’s bank accounts, and the entire house deposit. It broke their family apart. And I became very angry, until recently when I overhear the pokies at a pub. There was not a single losing sound coming out of them. It changed my view. I was less angry at the person and more angry at the machines. Pokies are designed to be addictive. Adding losing sounds is one small way to change that.</h2>
-            <br><br>
-			<p>&nbsp;</p>
+            <h2>Why did we do this?<br><br>
+            A close relative of ours lost 150k on the pokies. In the space of one year they slapped away the credit cards, the children’s bank accounts, the entire house deposit, and broke their family apart. This is one of thousands of stories all aided by highly addictive poker machines in pubs. While the East Sydney Hotel has always been proudly pokie-free, we still want to minimise the harm pokies can do on individuals.</h2>
         </div>
     </div>
 
     <div class="credits-section">
-      <div class="container">
-					      <img src="media/logos.png" alt="in partnership with" width="1080">
+        <div class="container">
+           <img src="media/logos.png" alt="in partnership with" width="1080">
 
         <p><strong>Project by:</strong> Neil Walshe<br>
               
@@ -587,100 +361,58 @@ These losing sounds were created to psyhcloicaly reduce gambling harm.
         </div>
     </div>
 
-    <div class="large-image-overlay">
+    <div class="large-image-overlay" id="overlay">
         <div class="large-image-container">
-            <img src="" alt="" class="large-image">
-            <span class="close-button">X</span>
+            <span class="close-button" id="closeBtn">&times;</span>
+            <img src="" alt="" class="large-image" id="largeImg">
         </div>
     </div>
 
     <script>
         const sfxIcons = document.querySelectorAll('.sfx-icon');
-        const largeImageOverlay = document.querySelector('.large-image-overlay');
-        const largeImage = document.querySelector('.large-image');
-        const closeButton = document.querySelector('.close-button');
+        const overlay = document.getElementById('overlay');
+        const largeImg = document.getElementById('largeImg');
+        const closeBtn = document.getElementById('closeBtn');
         const thumbnails = document.querySelectorAll('.thumbnail');
-        let isMobile = window.innerWidth <= 768;
+        let playingSound = null;
 
-
-        let playingSound = null; // Keep track of the currently playing sound
-
-
-        function playSound(soundFile) {
+        // Sound Engine
+        function handleSfx(e) {
+            const soundFile = e.target.dataset.sound;
             if (playingSound) {
                 playingSound.pause();
                 playingSound.currentTime = 0;
             }
-            const audio = new Audio(soundFile);
-            audio.play();
-            playingSound = audio;
-        }
+            playingSound = new Audio(soundFile);
+            playingSound.play();
 
-        function handleIconEvent(event) {
-            const soundFile = event.target.dataset.sound;
-            playSound(soundFile);
-
-            // Change the image on hover, revert on mouseleave
-            if (!isMobile) { // Only change image on hover for desktop
-                const currentImage = event.target.style.backgroundImage;
-                const newImage = currentImage.replace('-off', '-over');
-                event.target.style.backgroundImage = newImage;
-
-                event.target.addEventListener('mouseleave', () => {
-                    event.target.style.backgroundImage = currentImage; // Revert to original
-                }, { once: true }); // Remove listener after it's executed once
+            // Visual toggle for hover (Desktop only)
+            if (window.innerWidth > 768) {
+                const bg = e.target.style.backgroundImage;
+                if (bg.includes('-off')) {
+                    e.target.style.backgroundImage = bg.replace('-off', '-over');
+                    e.target.addEventListener('mouseleave', () => {
+                        e.target.style.backgroundImage = bg;
+                    }, { once: true });
+                }
             }
         }
 
         sfxIcons.forEach(icon => {
-            if (isMobile) {
-                icon.addEventListener('click', handleIconEvent);
-            } else {
-                icon.addEventListener('mouseenter', handleIconEvent);
-            }
+            icon.addEventListener('mouseenter', handleSfx);
+            icon.addEventListener('click', handleSfx); // Support touch
         });
 
-        thumbnails.forEach(thumbnail => {
-            thumbnail.addEventListener('click', () => {
-                const largeImageUrl = thumbnail.dataset.large;
-                largeImage.src = largeImageUrl;
-                largeImageOverlay.style.display = 'flex';
+        // Gallery Engine
+        thumbnails.forEach(t => {
+            t.addEventListener('click', () => {
+                largeImg.src = t.dataset.large;
+                overlay.style.display = 'flex';
             });
         });
 
-        closeButton.addEventListener('click', () => {
-            largeImageOverlay.style.display = 'none';
-        });
-
-        window.addEventListener('resize', () => {
-            isMobile = window.innerWidth <= 768;
-            // Re-bind events, since we're changing behavior on resize.
-            sfxIcons.forEach(icon => {
-                icon.removeEventListener('mouseenter', handleIconEvent);
-                icon.removeEventListener('click', handleIconEvent);
-                if (isMobile) {
-                    icon.addEventListener('click', handleIconEvent);
-                } else {
-                    icon.addEventListener('mouseenter', handleIconEvent);
-                }
-            });
-            //Dynamically change the grid layout
-            const sfxGrid = document.querySelector('.sfx-grid');
-            if(isMobile){
-               sfxGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
-            }
-            else{
-                sfxGrid.style.gridTemplateColumns = 'repeat(5, 200px)';
-            }
-
-            const photoGrid = document.querySelector('.thumbnails-grid');
-             if(isMobile){
-                photoGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
-            }
-            else{
-                 photoGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
-            }
-        });
+        closeBtn.addEventListener('click', () => overlay.style.display = 'none');
+        overlay.addEventListener('click', (e) => { if(e.target === overlay) overlay.style.display = 'none'; });
     </script>
 </body>
 </html>
